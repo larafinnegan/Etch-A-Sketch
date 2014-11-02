@@ -1,0 +1,27 @@
+header {
+	display:block;
+	text-align:center;
+	margin:auto;
+}
+
+.squares {
+    width: 40px;
+    height: 40px;
+    float:left;
+    margin: 0; 
+    background-color:black;
+}
+
+.wrapper {
+	height:640px;
+	width:640px;
+	display:block;
+	margin:auto;
+	clear:both;
+	margin-top:7%;
+	text-align:center;
+}
+
+.visited {
+	background-color:yellow;
+}
