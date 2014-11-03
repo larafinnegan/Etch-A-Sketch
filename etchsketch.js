@@ -7,14 +7,16 @@ $(document).ready(function() {
 	$('.squares').mouseenter(function() {
 		$(this).addClass("visited");
 	});
-	
+
+	//changes div color from black to yellow on mouseover
 	$('#chooseSize').click(function() {
 		populate();
-		$('div div').mouseenter(function() {
+		$('.squares').mouseenter(function() {
 			$(this).addClass("visited");
 		});
 	});
 	
+	//changes div color to yellow then fades to white on mouseover
 	$('#fadeOut').click(function() {
 		populate();
 		$('.squares').mouseenter(function() {
@@ -22,6 +24,7 @@ $(document).ready(function() {
 		});
 	});
 	
+	//changes div color to random hex - found random color function on Stack Overflow
 	$('#random').click(function() {
 		populate();
 		$('.squares').mouseenter(function() {
@@ -29,22 +32,14 @@ $(document).ready(function() {
 			$(this).css("background-color",color);
 		});
 	});
-	
-	$('#harder').click(function() {
-		populate();
-		$('.squares').mouseenter(function() {
-			$(this).animate({opacity:0.9});
-		});
-	});	
 });
 
+//prompts the user for input and populates a new sketchpad based on input
 	function populate() {
-		
-		var input=parseInt(prompt("Please choose the number of squares (min:2, max:70):"), 10);
 		var temp="";
 		var div='<div class="squares"></div>';
+		var input=parseInt(prompt("Please choose the number of squares (min: 2, max: 70):"), 10);
 		$('.squares').remove();
-		$('.visited').remove();
 		for (var i=1; i<=(input*input); i++) {
 			temp+=div;
 		};
