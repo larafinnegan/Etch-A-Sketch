@@ -1,8 +1,10 @@
 $(document).ready(function() {
+	
+	//populates the page on initial load
 	for (var i=1; i<=256; i++) {
 		$(".wrapper").append('<div class="squares"></div>');
 	};
-	$('div div').mouseenter(function() {
+	$('.squares').mouseenter(function() {
 		$(this).addClass("visited");
 	});
 	
@@ -15,15 +17,14 @@ $(document).ready(function() {
 	
 	$('#fadeOut').click(function() {
 		populate();
-		$('div div').mouseenter(function() {
-			$(this).animate({opacity: 0});
-			$(this).addClass("visited");
+		$('.squares').mouseenter(function() {
+			$(this).animate({opacity: 0}).addClass("visited");
 		});
 	});
 	
 	$('#random').click(function() {
 		populate();
-		$('div div').mouseenter(function() {
+		$('.squares').mouseenter(function() {
 			var color='#' + Math.random().toString(16).substring(2, 8);
 			$(this).css("background-color",color);
 		});
@@ -31,19 +32,19 @@ $(document).ready(function() {
 	
 	$('#harder').click(function() {
 		populate();
-		$('div div').mouseenter(function() {
-			$(this).addClass("visited");
+		$('.squares').mouseenter(function() {
+			$(this).animate({opacity:0.9});
 		});
-	});
-	
+	});	
 });
 
 	function populate() {
-		$('.squares').remove();
-		$('.visited').remove();
+		
 		var input=parseInt(prompt("Please choose the number of squares (min:2, max:70):"), 10);
 		var temp="";
 		var div='<div class="squares"></div>';
+		$('.squares').remove();
+		$('.visited').remove();
 		for (var i=1; i<=(input*input); i++) {
 			temp+=div;
 		};
